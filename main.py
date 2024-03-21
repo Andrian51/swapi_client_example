@@ -1,10 +1,11 @@
 from swapi import swapi
 
-def get_film_info():
-    film = swapi.get_film(1)
+def get_film_info(id):
+    film = swapi.get_film(id)
+    characters = film.get_characters().items
+
     print(f"Фільм:{film.title}")
 
-
-if __name__ == '__main__':
-    film_id = input("ввeдіть індентефікатор фільму:")
-    get_film_info()
+print(f"Персонажі:")
+for index, character in enumerate(characters, 1):
+    print(f"{index} {character.name} з планети (character.get_homeworwd()name)")
